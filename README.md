@@ -26,6 +26,26 @@ java -jar target/log-monitoring-1.0.jar /path/to/logfile.log
 java -jar target/log-monitoring-1.0.jar /path/to/file1.log /path/to/file2.log /path/to/file3.log
 ```
 
+### Using Docker
+
+Build the Docker image:
+
+```bash
+docker build -t log-monitoring .
+```
+
+Run with a log file from your host machine:
+
+```bash
+# Mount a single log file
+docker run --rm -v /replace/with/path/to/logfile.log:/app/logs/input.log log-monitoring /app/logs/input.log
+
+# Mount a directory containing multiple log files
+docker run --rm -v /replace/with/path/to/logs:/app/logs log-monitoring /app/logs/file1.log /app/logs/file2.log
+```
+
+**Note:** The `-v` flag mounts your local file/directory into the container so the application can access it.
+
 ## Log File Format
 
 The application expects CSV log files with the following format:
