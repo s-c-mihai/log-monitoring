@@ -12,6 +12,20 @@ To build and run on local device, ensure you have the following installed:
   - Download from [Maven website](https://maven.apache.org/download.cgi)
   - Verify installation: `mvn -version`
 
+## Running the Application
+
+The application requires **at least one log file path** as a command-line argument. Multiple log files can be provided and will be processed together.
+
+After building with `mvn package`:
+
+```bash
+# Run with a single log file
+java -jar target/log-monitoring-1.0.jar /path/to/logfile.log
+
+# Run with multiple log files
+java -jar target/log-monitoring-1.0.jar /path/to/file1.log /path/to/file2.log /path/to/file3.log
+```
+
 ## Log File Format
 
 The application expects CSV log files with the following format:
